@@ -31,16 +31,15 @@ const navbar = (
     logo={
       <span className="patrimbox-logo">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/logo.svg" alt="PatrimBox" height={28} width={29} className="logo-light" />
+        <img src="/brand/logo.svg" alt="PatrimBox" height={56} width={81} className="logo-light" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/brand/logo-white.svg"
           alt="PatrimBox"
-          height={28}
-          width={29}
+          height={56}
+          width={81}
           className="logo-dark"
         />
-        <span className="patrimbox-logo__name">PatrimBox</span>
       </span>
     }
   />
