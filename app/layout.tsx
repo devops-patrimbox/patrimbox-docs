@@ -47,7 +47,15 @@ const navbar = (
 
 export default async function RootLayout({ children }: PropsWithChildren) {
   const footer = (
-    <Footer>© {new Date().getFullYear()} PatrimBox. Tous droits réservés.</Footer>
+    <Footer>
+      <div className="footer-content">
+        <span>© {new Date().getFullYear()} PatrimBox. Tous droits réservés.</span>
+        <nav className="footer-links">
+          <a href="/aide">Aide &amp; dépannage</a>
+          <a href="/aide/faq">Foire aux questions</a>
+        </nav>
+      </div>
+    </Footer>
   );
 
   return (
