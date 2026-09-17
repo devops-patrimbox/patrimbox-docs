@@ -64,6 +64,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           sidebar={{ defaultMenuCollapseLevel: 1 }}
           themeSwitch={{ light: 'Clair', dark: 'Sombre', system: 'Système' }}
           toc={{ title: 'Sur cette page', backToTop: 'Revenir en haut' }}
+          copyPageButton={false}
         >
           {children}
         </Layout>
