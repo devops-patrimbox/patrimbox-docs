@@ -21,5 +21,5 @@ export function SearchClient() {
 
   if (!mounted) return null;
 
-  return <Search placeholder="Rechercher dans la documentation…" />;
+  return <Search placeholder="Rechercher…" />;
 }
