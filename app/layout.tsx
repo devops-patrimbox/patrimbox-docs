@@ -31,16 +31,15 @@ const navbar = (
     logo={
       <span className="patrimbox-logo">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/logo.svg" alt="PatrimBox" height={28} width={29} className="logo-light" />
+        <img src="/brand/logo.svg" alt="PatrimBox" height={56} width={81} className="logo-light" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/brand/logo-white.svg"
           alt="PatrimBox"
-          height={28}
-          width={29}
+          height={56}
+          width={81}
           className="logo-dark"
         />
-        <span className="patrimbox-logo__name">PatrimBox</span>
       </span>
     }
   />
@@ -48,7 +47,15 @@ const navbar = (
 
 export default async function RootLayout({ children }: PropsWithChildren) {
   const footer = (
-    <Footer>© {new Date().getFullYear()} PatrimBox. Tous droits réservés.</Footer>
+    <Footer>
+      <div className="footer-content">
+        <span>© {new Date().getFullYear()} PatrimBox. Tous droits réservés.</span>
+        <nav className="footer-links">
+          <a href="/aide">Aide &amp; dépannage</a>
+          <a href="/aide/faq">Foire aux questions</a>
+        </nav>
+      </div>
+    </Footer>
   );
 
   return (
@@ -64,6 +71,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           sidebar={{ defaultMenuCollapseLevel: 1 }}
           themeSwitch={{ light: 'Clair', dark: 'Sombre', system: 'Système' }}
           toc={{ title: 'Sur cette page', backToTop: 'Revenir en haut' }}
+          copyPageButton={false}
         >
           {children}
         </Layout>

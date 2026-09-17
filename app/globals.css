@@ -125,3 +125,37 @@ body {
 .nextra-breadcrumb:has(> span:only-child) {
   display: none;
 }
+
+/* ── Hide the right-hand "Sur cette page" table of contents ── */
+.nextra-toc {
+  display: none;
+}
+
+/* ── Hide the "CTRL K" / "⌘K" keyboard shortcut hint in the search box ── */
+.nextra-search kbd {
+  display: none;
+}
+
+/* ── Footer: copyright + help links ── */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-links a {
+  color: var(--color-text-muted);
+  transition: color 0.15s;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
