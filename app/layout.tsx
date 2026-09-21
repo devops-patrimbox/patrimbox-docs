@@ -8,6 +8,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 
+import { AudienceScope } from './audience-scope';
 import { SearchClient } from './search-client';
 
 const roboto = Roboto({
@@ -61,6 +62,19 @@ export default async function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="fr" dir="ltr" suppressHydrationWarning className={roboto.variable}>
       <body>
+        {/* Applique la classe d'audience avant l'hydratation React, pour éviter un flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.body.classList.add(
+              location.pathname.indexOf('/espace-professionnel-avocat') === 0
+                ? 'audience-avocat'
+                : location.pathname.indexOf('/espace-professionnel') === 0
+                  ? 'audience-notaire'
+                  : 'audience-client'
+            )`,
+          }}
+        />
+        <AudienceScope />
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}

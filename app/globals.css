@@ -57,9 +57,15 @@ body {
 /* ── Audience cards (home page) ── */
 .audience-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin: 2.5rem 0;
+}
+
+@media (max-width: 900px) {
+  .audience-cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 640px) {
@@ -133,6 +139,29 @@ body {
 
 /* ── Hide the "CTRL K" / "⌘K" keyboard shortcut hint in the search box ── */
 .nextra-search kbd {
+  display: none;
+}
+
+/* ── Audience-scoped nav: client vs notaire vs avocat (see app/audience-scope.tsx) ──
+   Chaque audience ne voit que son propre espace pro + l'espace client masqué. */
+body.audience-client li:has(> button[data-href='/espace-professionnel']),
+body.audience-client li:has(> a[href='/espace-professionnel']),
+body.audience-client li:has(> button[data-href='/espace-professionnel-avocat']),
+body.audience-client li:has(> a[href='/espace-professionnel-avocat']) {
+  display: none;
+}
+
+body.audience-notaire li:has(> button[data-href='/espace-client']),
+body.audience-notaire li:has(> a[href='/espace-client']),
+body.audience-notaire li:has(> button[data-href='/espace-professionnel-avocat']),
+body.audience-notaire li:has(> a[href='/espace-professionnel-avocat']) {
+  display: none;
+}
+
+body.audience-avocat li:has(> button[data-href='/espace-client']),
+body.audience-avocat li:has(> a[href='/espace-client']),
+body.audience-avocat li:has(> button[data-href='/espace-professionnel']),
+body.audience-avocat li:has(> a[href='/espace-professionnel']) {
   display: none;
 }
 
