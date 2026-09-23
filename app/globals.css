@@ -55,6 +55,24 @@ body {
 }
 
 /* ── Audience cards (home page) ── */
+/* Short home page: fill the viewport exactly, footer pinned at the bottom
+   and the content vertically centered in the remaining space */
+body:has(.audience-cards) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+body:has(.audience-cards) > div:has(> article) {
+  flex: 1;
+  width: 100%;
+}
+article:has(.audience-cards) {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .audience-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -79,19 +97,8 @@ body {
   border-radius: 12px;
   padding: 2rem;
   background: var(--color-bg-light);
-  text-decoration: none;
   color: inherit;
-  transition:
-    box-shadow 0.2s,
-    border-color 0.2s,
-    transform 0.2s;
   display: block;
-}
-
-.audience-card:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 4px 20px rgba(84, 116, 180, 0.16);
-  transform: translateY(-2px);
 }
 
 .audience-card__icon {
@@ -187,4 +194,9 @@ body.audience-avocat li:has(> a[href='/espace-professionnel']) {
 
 .footer-links a:hover {
   color: var(--color-primary);
+}
+
+/* Tighter footer than Nextra's default (py-12) */
+footer:has(> .footer-content) {
+  padding-block: 1.5rem;
 }

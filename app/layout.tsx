@@ -61,7 +61,8 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 
   return (
     <html lang="fr" dir="ltr" suppressHydrationWarning className={roboto.variable}>
-      <body>
+      {/* La classe d'audience est ajoutée au <body> par le script ci-dessous avant l'hydratation */}
+      <body suppressHydrationWarning>
         {/* Applique la classe d'audience avant l'hydratation React, pour éviter un flash */}
         <script
           dangerouslySetInnerHTML={{
@@ -83,7 +84,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           editLink={null}
           feedback={{ content: null }}
           sidebar={{ defaultMenuCollapseLevel: 1 }}
-          themeSwitch={{ light: 'Clair', dark: 'Sombre', system: 'Système' }}
+          darkMode={false}
           toc={{ title: 'Sur cette page', backToTop: 'Revenir en haut' }}
           copyPageButton={false}
         >
