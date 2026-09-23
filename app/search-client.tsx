@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Search } from 'nextra/components';
 
@@ -11,15 +12,18 @@ import { Search } from 'nextra/components';
  * ThemeProvider changes the fiber tree during hydration. By returning null
  * during SSR the server and the initial client render are identical, so React
  * never sees a mismatch. The search appears as soon as the component mounts.
+ *
+ * The search is hidden on the home page.
  */
 export function SearchClient() {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted || pathname === '/') return null;
 
   return <Search placeholder="Rechercher…" />;
 }
