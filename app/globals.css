@@ -97,8 +97,19 @@ article:has(.audience-cards) {
   border-radius: 12px;
   padding: 2rem;
   background: var(--color-bg-light);
+  text-decoration: none;
   color: inherit;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
   display: block;
+}
+
+.audience-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 20px rgba(84, 116, 180, 0.16);
+  transform: translateY(-2px);
 }
 
 .audience-card__icon {
