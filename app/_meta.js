@@ -11,4 +11,16 @@ export default {
   abonnement: { title: 'Abonnement & Premium' },
   compte: { title: 'Compte & paramètres' },
   aide: { title: 'Aide & dépannage' },
+  login: {
+    title: 'Connexion',
+    display: 'hidden',
+    theme: {
+      sidebar: false,
+      toc: false,
+      breadcrumb: false,
+      pagination: false,
+      timestamp: false,
+      layout: 'full',
+    },
+  },
 };

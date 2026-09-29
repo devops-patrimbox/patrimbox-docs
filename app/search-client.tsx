@@ -13,7 +13,8 @@ import { Search } from 'nextra/components';
  * during SSR the server and the initial client render are identical, so React
  * never sees a mismatch. The search appears as soon as the component mounts.
  *
- * The search is hidden on the home page.
+ * The search is hidden on the home page, and on the login page since the
+ * Pagefind index is behind the login too.
  */
 export function SearchClient() {
   const pathname = usePathname();
@@ -23,7 +24,7 @@ export function SearchClient() {
     setMounted(true);
   }, []);
 
-  if (!mounted || pathname === '/') return null;
+  if (!mounted || pathname === '/' || pathname === '/login') return null;
 
   return <Search placeholder="Rechercher…" />;
 }

@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 
 import { AudienceScope } from './audience-scope';
+import { LogoutButton } from './logout-button';
 import { SearchClient } from './search-client';
 
 const roboto = Roboto({
@@ -43,7 +44,9 @@ const navbar = (
         />
       </span>
     }
-  />
+  >
+    <LogoutButton />
+  </Navbar>
 );
 
 export default async function RootLayout({ children }: PropsWithChildren) {
